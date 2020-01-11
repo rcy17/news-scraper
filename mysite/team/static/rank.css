@@ -1,0 +1,65 @@
+/* 整体表格布局 */
+#three_tables {
+    display: flex;
+}
+
+.hot_rank {
+    float: left;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 25%;
+    border-collapse: collapse;
+}
+
+
+tbody {
+}
+
+/* 球队名称和搜索指数的结构 */
+tr {
+
+    width: 100%;
+}
+
+.left_td {
+    padding-top: 10px;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.rank_number {
+    display: inline-block;
+    padding: 1px 0;
+    color: #fff;
+    width: 14px;
+    line-height: 100%;
+    font-size: 12px;
+    text-align: center;
+    background-color: #8eb9f5;
+}
+
+.number_1 {
+    background-color: #f54545;
+}
+
+.number_2 {
+    background-color: #ff8547;
+}
+
+.number_3 {
+    background-color: #ffac38;
+}
+
+.related_number {
+    text-align: right;
+    border-bottom: 1px solid #f3f3f3;
+    padding-top: 10px;
+}
+
+#related_news {
+    text-align: right;
+}
+
+/* 隐藏分页 */
+.pagination {
+    display: none;
+}

@@ -1,0 +1,150 @@
+/************************以下为页面整体布局********************************/
+
+* {
+    box-sizing: border-box;
+}
+ 
+/* body 样式 */
+body {
+    font-family: songti, sans-serif;
+    margin: 0;
+}
+ 
+/* 标题 */
+.header {
+    padding: 10px;
+    text-align: center;
+    background: #0606d7;
+    color: #ffffff;
+}
+ 
+/* 标题字体加大 */
+.header h1 {
+    font-size: 48px;
+}
+ 
+/* 导航 */
+.navigator {
+    overflow: hidden;
+    background-color: #1ea674;
+}
+ 
+/* 导航栏样式 */
+.navigator a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+ 
+/* 右侧链接*/
+.navigator a.right {
+    float: right;
+}
+ 
+/* 鼠标移动到链接的颜色 */
+.navigator a:hover {
+    background-color: #ddd;
+    color: black;
+}
+ 
+/* 列容器 */
+.row {  
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+}
+ 
+/* 创建两个列 */
+/* 边栏 */
+.side {
+    -ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+ 
+/* 主要的内容区域 */
+.main {   
+    -ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    background-color: white;
+    padding: 20px;
+}
+
+/* 确认按钮的属性 */
+.pushbutton {
+    background: blue;
+    text-align: center;
+    padding: 14px 2px;
+    width: 20%;
+    font-size: large;
+    float: left;
+}
+
+/* 鼠标滑过确认按钮 */
+.pushbutton:hover {
+    background: #0000de;
+    text-align: center;
+    padding: 14px 2px;
+    width: 20%;
+    font-size: large;
+    float: left;
+}
+ 
+/* 底部 */
+
+footer {
+    position: fixed;
+    background-color: #c0c0c0;
+    color: #000000;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/**************************************以下为主体部分************************************/
+
+/* 整个main_content block布局 */
+#main_content {
+    margin: 0 20px 0 20px;
+}
+
+
+/*********************************以下为分页按钮****************************************/
+
+/* 分页按钮 */
+.pagination{
+    width: 100%;
+    margin: 30px 0 50px;
+    text-align: center;
+}
+
+/* 跳转按钮 */
+#jump_button {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    text-decoration:underline;
+    color: #000080;
+}
+
+#jump_button:hover {
+    color: #0000ff;
+    cursor:pointer
+}
+
+/* 页码输入框 */
+#page {
+    width: 50px;
+}
+

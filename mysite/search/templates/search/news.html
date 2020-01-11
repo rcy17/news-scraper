@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ news.title }}</title>
+    <link rel="stylesheet" href="{% static 'news.css' %}">
+</head>
+<body>
+<div class="article-title">
+    <h1>{{ news.title }}</h1>
+    <div class="source-time">
+        来源:{{ news.source | default:"不详" }} {{ news.pub_time | date:"Y-m-d H:i:s" }}
+    </div>
+</div>
+
+{{ news.content | safe}}
+</body>
+</html>

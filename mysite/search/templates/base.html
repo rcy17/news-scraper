@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ html_title }}</title>
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+</head>
+<body>
+
+<div class="header">
+    <h1>NBA2019</h1>
+    <p>为您报道(来自腾讯体育的)最新NBA新闻！</p>
+</div>
+<div class="navigator">
+    <a class="navigator" href="/">搜索</a>
+    <a class="navigator" href="/team/rank/factor">热度榜</a>
+    <a class="navigator" href="/team/rank/count">知名榜</a>
+    <a class="navigator right" href="/scraper/">爬虫管理</a>
+</div>
+
+<div id="main_content">
+
+{% block main_block %}
+{% endblock main_block %}
+
+<!--下面是分页按钮-->
+<form action="#" class="pagination" method="get">
+    <span class="step-links">
+        {% if result.has_previous %}
+            <a href="?{{ other_string }}&page=1">&laquo; 首页</a>
+            <a href="?{{ other_string }}&page={{ result.previous_page_number }}">上一页</a>
+        {% endif %}
+
+        <span class="current">
+            <input type="submit" value="跳至" id="jump_button">
+            <input type="hidden" value="{{ keyword }}" name="keyword" />
+            <input type="text" value="{{ result.number }}" placeholder="页码" id="page" name="page" />
+            / {{ result.paginator.num_pages }} 页
+
+        </span>
+
+        {% if result.has_next %}
+            <a href="?{{ other_string }}page={{ result.next_page_number }}">下一页</a>
+            <a href="?{{ other_string }}&page={{ result.paginator.num_pages }}">尾页 &raquo;</a>
+        {% endif %}
+    </span>
+</form>
+
+</div>
+
+<footer>一切权利归作者所有。</footer>
+
+</body>
+</html>

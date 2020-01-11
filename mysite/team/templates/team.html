@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ html_title }}</title>
+    <link rel="stylesheet" href="{% static 'team.css' %}">
+</head>
+<body>
+
+<!--这里展示队伍整体信息-->
+<div id="team_info">
+    <img id="team_img" src="/static/svg/{{ team.abbr }}_logo.svg">
+    <div id="team_text">
+    <p id="team_name">{{ team.name }}队</p>
+    <p id="team_city">所在城市: {{ team.city }}</p>
+    <p id="team_division">所属赛区: {{ team.division }}</p>
+    </div>
+</div>
+
+<table id="player_table">
+    <thead>
+        <tr>
+            <th colspan=5 id="info_head">队员信息</th>
+        </tr>
+        <tr>
+            <th class="table_head head_player_name">姓名</th>
+            <th class="table_head">位置</th>
+            <th class="table_head">身高</th>
+            <th class="table_head">体重</th>
+            <th class="table_head">国籍</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for player in players %}
+        {% if forloop.counter|divisibleby:"2" %}
+            <tr class="row_even">
+        {% else %}
+            <tr class="row_odd">
+        {% endif %}
+        <!--首先把球员头像搞过来-->
+         <td>
+             <span class="player_img_border">
+                 <img src="{{ player.img }}" onerror="this.src = '/static/svg/not_found.svg'" class="player_img">
+             </span>
+             <div class="player_name">{{ player.first_name }}<br>{{ player.last_name }}</div>
+         </td>
+         <td>{{ player.position }}</td>
+         <td>{{ player.height }}</td>
+         <td>{{ player.weight }}</td>
+         <td>{{ player.country }}</td>
+         </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div id="related">
+<div id="related_head">相关新闻(共{{ count }}条)</div>
+<ul id="related_news">
+    {% for news in related_news %}
+        <li class="news_item">
+            {{ news.pub_time | date:"Y-m-d" }} <a href="/news/{{ news.newsID }}">{{ news.title }}</a>
+        </li>
+    {% endfor %}
+<!--下面是分页按钮-->
+<form action="#" class="pagination" method="get">
+    <span class="step-links">
+        {% if result.has_previous %}
+            <a href="?{{ other_string }}&page=1">&laquo; 首页</a>
+            <a href="?{{ other_string }}&page={{ result.previous_page_number }}">上一页</a>
+        {% endif %}
+
+        <span class="current">
+            <input type="submit" value="跳至" id="jump_button">
+            <input type="hidden" value="{{ keyword }}" name="keyword" />
+            <input type="text" value="{{ result.number }}" placeholder="页码" id="page" name="page" />
+            / {{ result.paginator.num_pages }} 页
+
+        </span>
+
+        {% if result.has_next %}
+            <a href="?{{ other_string }}page={{ result.next_page_number }}">下一页</a>
+            <a href="?{{ other_string }}&page={{ result.paginator.num_pages }}">尾页 &raquo;</a>
+        {% endif %}
+    </span>
+</form>
+</ul>
+
+</div>
+</body>
+</html>

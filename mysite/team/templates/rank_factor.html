@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--以下为排行榜-->
+{% block main_block %}
+<link rel="stylesheet" href="{% static 'rank.css' %}"/>
+<div id="three_tables">
+<table class="hot_rank">
+    <tbody>
+        <tr>
+            <td>
+                <span>球队名称</span>
+            </td>
+            <td id="related_news">
+                热度指数
+            </td>
+        </tr>
+    {% for team in first_ten %}
+        <tr>
+            <td class="left_td">
+                {% if team.rank == 1 %}
+                    <span class="rank_number number_1">{{ team.rank }}</span>
+                {% elif team.rank == 2 %}
+                    <span class="rank_number number_2">{{ team.rank }}</span>
+                {% elif team.rank == 3 %}
+                    <span class="rank_number number_3">{{ team.rank }}</span>
+                {% else %}
+                    <span class="rank_number">{{ team.rank }}</span>
+                {% endif %}
+                <a href="/team/{{ team.team_id }}">{{ team.name }}</a>
+            </td>
+            <td class="related_number">
+                {{ team.factor | floatformat:"2" }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+<table class="hot_rank">
+    <tbody>
+        <tr>
+            <td>
+                <span>球队名称</span>
+            </td>
+            <td id="related_news">
+                热度指数
+            </td>
+        </tr>
+    {% for team in middle_ten %}
+        <tr>
+            <td class="left_td">
+                <span class="rank_number">{{ team.rank }}</span>
+                <a href="/team/{{ team.team_id }}">{{ team.name }}</a>
+            </td>
+            <td class="related_number">
+                {{ team.factor | floatformat:"2" }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+
+
+
+<table class="hot_rank">
+    <tbody>
+        <tr>
+            <td>
+                <span>球队名称</span>
+            </td>
+            <td id="related_news">
+                热度指数
+            </td>
+        </tr>
+    {% for team in last_ten %}
+        <tr>
+            <td class="left_td">
+                <span class="rank_number">{{ team.rank }}</span>
+                <a href="/team/{{ team.team_id }}">{{ team.name }}</a>
+            </td>
+            <td class="related_number">
+                {{ team.factor | floatformat:"2" }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock main_block %}

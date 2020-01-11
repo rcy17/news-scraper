@@ -1,0 +1,155 @@
+/* 整体结构 */
+body {
+    margin-left: 5%;
+    margin-right: 5%;
+    background: #c0c0c0;
+}
+
+/* 上方整体信息区域 */
+
+#team_info {
+    background: #ededed;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+#team_img {
+    padding-left: 30%;
+    float: left;
+    height: 200px;
+    width: 200px;
+}
+
+#team_name {
+    color: #666;
+    font-family: Helvetica,Arial,"Hiragino Sans GB","Microsoft Yahei","微软雅黑",STHeiti,"华文细黑",sans-serif;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+#team_text {
+    float: left;
+    margin-left: 5%;
+}
+
+/* 左下角队员信息 */
+
+#player_table {
+    background: #8eb9f5 ;
+    width: 100%;
+    border-collapse:collapse;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.player_img_border {
+    border: 1px solid #efefef;
+    border-radius: 50%;
+    display: inline-block;
+    height: 40px;
+    float: left;
+    margin-right: 10px;
+    overflow: hidden;
+    width: 40px;
+}
+
+.player_img {
+    background: #fff;
+    display: inline-block;
+    height: 40px;
+    margin: 0 -7px;
+    max-width: 54px;
+    width: 54px;
+}
+
+#info_head {
+    background: #eeeeee;
+    font-size: 25px;
+    padding: 10px 10px 10px 10px;
+}
+
+.table_head {
+    background: #1a2939;
+    color: #ffffff;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.head_player_name {
+    width: 20%;
+    text-align: left;
+}
+
+.player_name {
+    float: left;
+    text-align: left;
+}
+
+.row_even {
+    background: #f4f4f4;
+}
+
+.row_odd {
+    background: #ffffff;
+}
+
+td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* 新闻头 */
+#related_head {
+    background: #333333;
+    margin-top: 10px;
+
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 10px 10px 30px;
+}
+
+/* 相关新闻 */
+#related_news {
+    box-sizing: border-box;
+    background: #b6afb1;
+    margin-top: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.news_item {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/*********************************以下为分页按钮****************************************/
+
+/* 分页按钮 */
+.pagination{
+    width: 100%;
+    margin: 30px 0 50px;
+    text-align: center;
+}
+
+/* 跳转按钮 */
+#jump_button {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    text-decoration:underline;
+    color: #000080;
+}
+
+#jump_button:hover {
+    color: #0000ff;
+    cursor:pointer
+}
+
+/* 页码输入框 */
+#page {
+    width: 50px;
+}
+

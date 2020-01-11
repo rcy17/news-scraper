@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main_block %}
+<link rel="stylesheet" href="{% static 'search.css' %}">
+<!--以下为搜索部分内容-->
+
+<form action="/search/" class="search_area" method="get">
+    <input type="search" name="keyword" class="search_box"  placeholder="请输入关键字"
+           autofocus value="{{ keyword | safe }}">
+    <input type="submit" value="搜索一下" class="pushbutton">
+</form>
+
+
+<!--此处应该有热点说明或搜索用时-->
+{% if cost %}
+    <div class="report">
+    搜索到{{ total }}个结果，用时{{ cost }}秒。
+    </div>
+{% else %}
+    <div class="latest">
+    以下是最新消息。
+    </div>
+{% endif %}
+
+<!--以下为最新新闻或搜索结果-->
+<div id="result_list">
+{% for news in page_news %}
+    <div class="result_item">
+        <a class="result_title" href="/news/{{ news.newsID }}">{{ news.title | safe }}</a>
+        <p class="abstract">
+            <span class="result_time">{{ news.pub_time | date:'Y-m-d' }}</span>
+            <span class="result_content"> - {{ news.content | safe }}</span>
+        </p>
+    </div>
+{% endfor %}
+</div>
+
+{% endblock main_block %}

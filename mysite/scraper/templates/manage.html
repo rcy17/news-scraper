@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_block %}
+
+<link rel="stylesheet" href="{% static 'css/manage.css' %}" />
+<!--汇报表格-->
+<table>
+<tr>
+    <th>数据项</th>
+    <th>数量</th>
+</tr>
+    <tbody>
+    <tr>
+        <td>新闻数</td>
+        <td>{{ news_count }}</td>
+    </tr>
+    <tr>
+        <td>词语数</td>
+        <td>{{ word_count }}</td>
+    </tr>
+    <tr>
+        <td>队伍数</td>
+        <td>{{ teams_count }}</td>
+    </tr>
+    <tr>
+        <td>选手数</td>
+        <td>{{ player_count }}</td>
+    </tr>
+    <tr>
+        <td>词频数</td>
+        <td>{{ freq_count }}</td>
+    </tr>
+    <tr>
+        <td>关联数</td>
+        <td>{{ relation_count }}</td>
+    </tr>
+    </tbody>
+</table>
+<div id="scraper">
+{% if working %}
+<img src="/static/source/spider.gif">
+{% else %}
+<img src="/static/source/spider.png">
+{% endif %}
+    <form action="render" method="post">
+        {% csrf_token %}
+        {% if working %}
+        <input type="submit" value="暂停爬虫">
+        {% else %}
+        <input type="submit" value="开始爬虫">
+        {% endif %}
+    </form>
+</div>
+
+
+{% endblock main_block %}
